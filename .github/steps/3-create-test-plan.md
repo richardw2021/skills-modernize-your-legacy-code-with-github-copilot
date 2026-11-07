@@ -12,7 +12,7 @@ But... you don't know how to compile COBOL source code, right? No problem!
 
 Because that is a common task, we have already set up a custom prompt file that is ready to use in your codespace!
 
-1. Inside your Copilot Chat window, make sure you are still using **Agent Mode**.
+1. In Copilot Chat, select the **Local** session target. Workspace prompt files are available in Local sessions.
 1. Use the **Run COBOL App** prompt file by typing `/runCobolApp` in the chat input box and selecting the prompt from the list. You don't need to type anything else, just select the prompt.
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -24,6 +24,7 @@ Because that is a common task, we have already set up a custom prompt file that 
    > [!NOTE]
    > You can find the contents of the prompt file in `.github/prompts` directory.
    > You can learn more in the [prompt files documentation](https://code.visualstudio.com/docs/copilot/customization/prompt-files).
+   > If the prompt doesn't appear in the slash-command list, run **Chat: Run Prompt** from the Command Palette and select **Run COBOL App**.
 
 1. Play with the Cobol App to see how it works!
    - The application will prompt you to select an option from the menu.
@@ -72,7 +73,7 @@ We will use that test plan to create tests in the Node.js application later.
 <details>
 <summary>Having trouble? 🤷</summary><br/>
 
-- If you don't see the `/runCobolApp` prompt in the list, make sure you are using **Agent Mode**.
+- If you don't see the `/runCobolApp` prompt in the list, make sure **Local** is selected in Copilot Chat and that the current workspace is this repository. Then start a fresh chat and try again. If it is still missing, open the **Agent Debug Log** from the Chat view's **...** menu to inspect prompt discovery errors.
 - If you don't get feedback, make sure your pushed the `docs/TESTPLAN.md` file changes to the branch `modernize-legacy-code`.
 
 </details>

@@ -1,0 +1,14 @@
+{
+  "name": "accounting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js account management application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

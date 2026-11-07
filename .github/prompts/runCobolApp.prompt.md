@@ -1,6 +1,5 @@
 ---
 agent: 'agent'
-model: gpt-4.1
 description: 'Compile and run the Cobol accounting system'
 ---
 
