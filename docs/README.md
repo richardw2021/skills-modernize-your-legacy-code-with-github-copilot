@@ -2,6 +2,38 @@
 
 This directory documents the COBOL programs under `src/cobol/`. Together, they provide a menu-driven interface for viewing and changing an account balance.
 
+## Node.js accounting application
+
+The migrated application is in [`src/accounting/index.js`](../src/accounting/index.js)
+and requires Node.js 18 or later. It has no third-party dependencies. From the
+repository root:
+
+```sh
+cd src/accounting
+npm install
+npm start
+```
+
+In VS Code, select **Run Accounting Application** in Run and Debug to start it
+in the integrated terminal. Run `npm test` from `src/accounting` for the
+unit and command-line integration tests.
+
+The Node.js application keeps the same menu, initial balance, sufficient-funds
+rule, and in-memory lifetime. It stores amounts as integer cents to avoid
+floating-point rounding. Zero amounts are accepted. To protect data integrity,
+it deliberately differs from the legacy runtime: negative, blank, nonnumeric,
+and more-than-two-decimal amounts are rejected rather than converted or
+truncated; amounts or resulting balances above `999999.99` are rejected
+instead of wrapping. Amounts must use digits with an optional decimal point
+followed by one or two digits. After a rejected transaction, the menu returns
+and the balance is unchanged. Menu choices must be a single digit from 1 to 4
+after trimming whitespace, rather than truncating longer inputs. End of input
+before exit is reported as an error.
+
+[`TESTPLAN.md`](./TESTPLAN.md) records the COBOL baseline, including legacy
+input and overflow behavior; those cases should not be treated as expected
+Node.js behavior where they conflict with the safeguards above.
+
 ## Program Files
 
 ### `main.cob` - MainProgram
