@@ -37,6 +37,19 @@ requirement rather than existing behavior. For future Node.js tests, compare
 the business result as well as the visible messages where compatibility is
 required; preserve or change the unusual cases only after stakeholder review.
 
+## Node.js migration test coverage
+
+Run the dedicated Node.js tests from `src/accounting` with `npm test`. The
+`index.test.js` suite uses the case IDs below to cover the menu, transactions,
+in-memory balance, input handling, and balance limits. The Node.js application
+intentionally rejects negative, blank, nonnumeric, and over-precision amounts,
+rejects multi-digit menu choices, and rejects balance overflow; tests assert
+these safer behaviors rather than the COBOL runtime conversions and wraparound
+recorded in MENU-05, INPUT-01 through INPUT-08, and LIMIT-02. DATA-03 and OPS-01
+describe internal COBOL subprogram calls that are not public interfaces in the
+consolidated Node.js application; their Node tests cover invalid menu choices
+not mutating the account, rather than introducing equivalent subprogram APIs.
+
 ## Test cases
 
 | Test Case ID | Test Case Description | Pre-conditions | Test Steps | Expected Result | Actual Result | Status (Pass/Fail) | Comments |
